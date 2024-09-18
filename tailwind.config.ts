@@ -9,11 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#6C5CE7",
+        secondary: "#00CEC9",
+        accent: "#FFA502",
+        background: "#0C0C0C",
+        surface: "#1E1E1E",
+        text: "#FFFFFF",
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+      maxWidth: {
+        'mobile': '414px', // iPhone 8 Plus 宽度，适合大多数手机
       },
     },
   },
   plugins: [],
 };
+
 export default config;

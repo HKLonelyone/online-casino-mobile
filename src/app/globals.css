@@ -1,27 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #FFD700;
+  --secondary: #4A90E2;
+  --accent: #FF6B6B;
+  --background: #121212;
+  --surface: #1E1E1E;
+  --text: #FFFFFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  @apply bg-background text-text font-sans overflow-x-hidden touch-manipulation;
+  max-width: 100vw;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.casino-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.casino-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--background), var(--surface));
+  opacity: 0.8;
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.2;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.light-beam {
+  position: absolute;
+  width: 50px;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  transform: rotate(45deg);
+  animation: moveLight 8s infinite;
+}
+
+@keyframes moveLight {
+  0%, 100% { transform: rotate(45deg) translateX(-100%) translateY(-100%); }
+  50% { transform: rotate(45deg) translateX(100%) translateY(100%); }
+}
+
+.sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  animation: sparkle 4s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.content-container {
+  position: relative;
+  z-index: 1;
 }
