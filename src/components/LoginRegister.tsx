@@ -4,6 +4,12 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { StaticImageData } from 'next/image';
+import Spline from '@splinetool/react-spline';
+import Logo from '../../img/logo.png';
+import googleIcon from '../../img/google.png';
+import facebookIcon from '../../img/facebook.png';
+import twitterIcon from '../../img/twitter.png';
 
 const LoginRegister: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -19,6 +25,12 @@ const LoginRegister: React.FC = () => {
     router.push('/main');
   };
 
+  const icons: { [key: string]: StaticImageData } = {
+    google: googleIcon,
+    facebook: facebookIcon,
+    twitter: twitterIcon
+  };
+
   const toggleMode = () => {
     setIsLogin(!isLogin);
     setUsername('');
@@ -28,19 +40,27 @@ const LoginRegister: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
-      <div className="fixed inset-0 bg-gradient-to-b from-purple-600 to-indigo-600 opacity-50 z-0"></div>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+      {/* Spline 3D 背景 */}
+      <div className="absolute inset-0 z-0">
+        <Spline scene="https://prod.spline.design/s5YDp6ejRN4SvBEY/scene.splinecode" />
+      </div>
+
+      {/* 遮蓋 "Built with Spline" 標誌的元素 */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-black z-10"></div>
+
+      {/* 登入/註冊表單 */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-gray-800 bg-opacity-90 rounded-xl p-8 w-full max-w-md z-10 shadow-lg"
+        className="bg-gray-800 bg-opacity-90 rounded-xl p-8 w-full max-w-md z-20 shadow-lg"
       >
         <div className="text-center mb-8">
           <Image
-            src="/logo.png"
+            src={Logo}
             alt="Logo"
-            width={100}
+            width={200}
             height={100}
             className="mx-auto mb-4"
           />
@@ -165,7 +185,7 @@ const LoginRegister: React.FC = () => {
                 className="bg-gray-700 p-2 rounded-full"
               >
                 <Image
-                  src={`/${platform}-icon.png`}
+                  src={icons[platform as keyof typeof icons]}
                   alt={`${platform} login`}
                   width={24}
                   height={24}

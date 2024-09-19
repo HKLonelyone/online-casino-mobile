@@ -3,16 +3,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Spline from '@splinetool/react-spline';
+import icon from '../../img/Icon.png';
+import announcement from '../../img/announcement.png';
+import game1Icon from '../../img/game-Power of Thor_tw.png';
+import game2Icon from '../../img/game-Golden Niu-Niu_tw.png';
+import game3Icon from '../../img/game-Get Hooked_tw.png';
+import game4Icon from '../../img/game-Poker_tw.png';
 
 const MainPage: React.FC = () => {
   const [currentAnnouncementIndex, setCurrentAnnouncementIndex] = useState(0);
   const [activePopups, setActivePopups] = useState<number[]>([0, 1, 2]);
 
   const games = [
-    { id: 1, name: '戰神霄雷', icon: '🎰', category: '老虎機', jackpot: '2,094,511' },
-    { id: 2, name: '幸運霸大夢', icon: '🍀', category: '老虎機', jackpot: '10,366' },
-    { id: 3, name: '金銀島', icon: '🏝️', category: '老虎機', jackpot: '91,103' },
-    { id: 4, name: '雷神', icon: '⚡', category: '老虎機', jackpot: '4,064' },
+    { id: 1, name: '戰神霄雷', icon: game1Icon, category: '老虎機', jackpot: '2,094,511' },
+    { id: 2, name: '幸運霸大夢', icon: game2Icon, category: '老虎機', jackpot: '10,366' },
+    { id: 3, name: '金銀島', icon: game3Icon, category: '老虎機', jackpot: '91,103' },
+    { id: 4, name: '雷神', icon: game4Icon, category: '老虎機', jackpot: '4,064' },
   ];
 
   const announcements = [
@@ -49,7 +56,11 @@ const MainPage: React.FC = () => {
       transition={{ duration: 0.5 }}
       className="relative min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-hidden"
     >
-      <div className="fixed inset-0 bg-gradient-to-b from-purple-600 to-indigo-600 opacity-50 z-0"></div>
+      <div className="fixed inset-0 z-0">
+        <Spline scene="https://prod.spline.design/QJSMmvXgJd9DGGgj/scene.splinecode" />
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 h-16 bg-black z-10"></div>
 
       <div className="relative z-10 pb-20">
         <motion.div
@@ -60,7 +71,7 @@ const MainPage: React.FC = () => {
         >
           <div className="flex items-center">
             <Image
-              src="/path-to-user-avatar.jpg"
+              src={icon}
               alt="User Avatar"
               width={40}
               height={40}
@@ -86,15 +97,23 @@ const MainPage: React.FC = () => {
           </div>
         </motion.div>
 
-        <div className="bg-gray-800 bg-opacity-60 p-4">
-          <div className="flex items-center justify-center">
-            <span className="text-lg font-bold mr-2">公告:</span>
+        <div className="relative">
+          <Image
+            src={announcement}
+            alt="Announcement background"
+            width={500}
+            height={10}
+            className="w-full h-[40px] object-cover"
+          />
+          <div className="absolute inset-0 flex items-center justify-center px-4">
+            <span className="text-lg font-bold mr-2 text-white">公告:</span>
             <motion.p
               key={currentAnnouncementIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
+              className="text-white text-sm md:text-base overflow-hidden"
             >
               {announcements[currentAnnouncementIndex]}
             </motion.p>
@@ -115,9 +134,17 @@ const MainPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg p-3 shadow-lg"
                 >
-                  <div className="text-4xl mb-2">{game.icon}</div>
-                  <h3 className="text-sm font-bold text-purple-300">{game.name}</h3>
-                  <p className="text-xs text-yellow-400 mt-1">獎池: {game.jackpot}</p>
+                  <div className="mb-2 flex justify-center">
+                    <Image
+                      src={game.icon}
+                      alt={game.name}
+                      width={80}
+                      height={80}
+                      className="object-contain"
+                    />
+                  </div>
+                  <h3 className="text-sm font-bold text-purple-300 text-center">{game.name}</h3>
+                  <p className="text-xs text-yellow-400 mt-1 text-center">獎池: {game.jackpot}</p>
                 </motion.div>
               ))}
             </div>
