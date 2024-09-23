@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import BG from '../../img/AgeVerificationBG.jpg'
+import Spline from '@splinetool/react-spline';
 
 interface AgeVerificationProps {
   onVerified: () => void;
@@ -13,15 +13,11 @@ const AgeVerification: React.FC<AgeVerificationProps> = ({ onVerified }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black">
       <div className="relative w-full max-w-[375px] h-[667px] overflow-hidden rounded-3xl shadow-2xl">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={BG}
-            alt="Age Verification Background"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
-        </div>
+      <div className="fixed inset-0 z-0">
+        <Spline scene="https://prod.spline.design/s5YDp6ejRN4SvBEY/scene.splinecode" />
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 h-16 bg-black z-10"></div>
         <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

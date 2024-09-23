@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Spline from '@splinetool/react-spline';
 
 const HelpCenterPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,7 +26,11 @@ const HelpCenterPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white pb-16">
-      <div className="fixed inset-0 bg-gradient-to-b from-purple-600 to-indigo-600 opacity-50 z-0"></div>
+      <div className="fixed inset-0 z-0">
+        <Spline scene="https://prod.spline.design/QJSMmvXgJd9DGGgj/scene.splinecode" />
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 h-16 bg-black z-10"></div>
 
       <div className="relative z-10">
         <motion.div

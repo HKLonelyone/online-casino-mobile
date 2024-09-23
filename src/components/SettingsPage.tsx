@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Spline from '@splinetool/react-spline';
+import Header from './Header';
 
 const SettingsPage: React.FC = () => {
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -41,28 +43,21 @@ const SettingsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white pb-16">
-      <div className="fixed inset-0 bg-gradient-to-b from-purple-600 to-indigo-600 opacity-50 z-0"></div>
+      <div className="fixed inset-0 z-0">
+        <Spline scene="https://prod.spline.design/QJSMmvXgJd9DGGgj/scene.splinecode" />
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 h-16 bg-black z-10"></div>
+
 
       <div className="relative z-10">
         <motion.div
           initial={{ y: -50 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 sticky top-0 z-20 shadow-md"
+          className=" sticky top-0 z-20 shadow-md"
         >
-          <div className="flex items-center">
-            <Image
-              src="/path-to-user-avatar.jpg"
-              alt="User Avatar"
-              width={40}
-              height={40}
-              className="rounded-full border-2 border-white mr-2"
-            />
-            <div>
-              <span className="text-sm font-bold">VIP1</span>
-              <p className="text-xs opacity-75">設置您的偏好</p>
-            </div>
-          </div>
+          <Header />
         </motion.div>
 
         <div className="p-4 space-y-4">

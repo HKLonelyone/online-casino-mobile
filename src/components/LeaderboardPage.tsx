@@ -3,46 +3,62 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import IconImage from '../../img/Icon.png';
+import Spline from '@splinetool/react-spline';
+
+interface LeaderboardItem {
+  rank: number;
+  name: string;
+  score: number;
+}
+
+type LeaderboardData = {
+  [key: string]: LeaderboardItem[];
+};
 
 const LeaderboardPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('總排行');
 
   const categories = ['總排行', '老虎機', '撲克', '百家樂'];
 
-  const leaderboardData = {
+  const leaderboardData: LeaderboardData = {
     '總排行': [
-      { rank: 1, name: '贏家888', score: 1000000, avatar: '/avatar1.jpg' },
-      { rank: 2, name: '幸運星', score: 950000, avatar: '/avatar2.jpg' },
-      { rank: 3, name: '賭神', score: 900000, avatar: '/avatar3.jpg' },
-      { rank: 4, name: '財富大亨', score: 850000, avatar: '/avatar4.jpg' },
-      { rank: 5, name: '黃金手', score: 800000, avatar: '/avatar5.jpg' },
+      { rank: 1, name: '贏家888', score: 10000 },
+      { rank: 2, name: '幸運星', score: 9500 },
+      { rank: 3, name: '賭神', score: 9000 },
+      { rank: 4, name: '財富大亨', score: 8500 },
+      { rank: 5, name: '黃金手', score: 8000 },
     ],
     '老虎機': [
-      { rank: 1, name: '轉運王', score: 500000, avatar: '/avatar6.jpg' },
-      { rank: 2, name: '幸運7', score: 450000, avatar: '/avatar7.jpg' },
-      { rank: 3, name: '百萬富翁', score: 400000, avatar: '/avatar8.jpg' },
-      { rank: 4, name: '旋轉達人', score: 350000, avatar: '/avatar9.jpg' },
-      { rank: 5, name: '小賭怡情', score: 300000, avatar: '/avatar10.jpg' },
+      { rank: 1, name: '轉運王', score: 5000 },
+      { rank: 2, name: '幸運7', score: 4500 },
+      { rank: 3, name: '百萬富翁', score: 4000 },
+      { rank: 4, name: '旋轉達人', score: 3500 },
+      { rank: 5, name: '小賭怡情', score: 3000 },
     ],
     '撲克': [
-      { rank: 1, name: '撲克之王', score: 300000, avatar: '/avatar11.jpg' },
-      { rank: 2, name: '全下高手', score: 280000, avatar: '/avatar12.jpg' },
-      { rank: 3, name: '冷面殺手', score: 260000, avatar: '/avatar13.jpg' },
-      { rank: 4, name: '算牌達人', score: 240000, avatar: '/avatar14.jpg' },
-      { rank: 5, name: '德州之星', score: 220000, avatar: '/avatar15.jpg' },
+      { rank: 1, name: '撲克之王', score: 3000 },
+      { rank: 2, name: '全下高手', score: 2800 },
+      { rank: 3, name: '冷面殺手', score: 2600 },
+      { rank: 4, name: '算牌達人', score: 2400 },
+      { rank: 5, name: '德州之星', score: 2200 },
     ],
     '百家樂': [
-      { rank: 1, name: '莊閒通吃', score: 400000, avatar: '/avatar16.jpg' },
-      { rank: 2, name: '點數大師', score: 380000, avatar: '/avatar17.jpg' },
-      { rank: 3, name: '賭場之王', score: 360000, avatar: '/avatar18.jpg' },
-      { rank: 4, name: '百家樂高手', score: 340000, avatar: '/avatar19.jpg' },
-      { rank: 5, name: '幸運莊家', score: 320000, avatar: '/avatar20.jpg' },
+      { rank: 1, name: '莊閒通吃', score: 4000 },
+      { rank: 2, name: '點數大師', score: 3800 },
+      { rank: 3, name: '賭場之王', score: 3600 },
+      { rank: 4, name: '百家樂高手', score: 3400 },
+      { rank: 5, name: '幸運莊家', score: 3200 },
     ],
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white pb-16">
-      <div className="fixed inset-0 bg-gradient-to-b from-purple-600 to-indigo-600 opacity-50 z-0"></div>
+      <div className="fixed inset-0 z-0">
+        <Spline scene="https://prod.spline.design/QJSMmvXgJd9DGGgj/scene.splinecode" />
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 h-16 bg-black z-10"></div>
 
       <div className="relative z-10">
         <motion.div
@@ -103,14 +119,14 @@ const LeaderboardPage: React.FC = () => {
                     )}
                   </div>
                   <Image
-                    src={item.avatar}
+                    src={IconImage}
                     alt={item.name}
                     width={40}
                     height={40}
                     className="rounded-full mr-4"
                   />
                   <div className="flex-grow">
-                    <h3 className="font-bold">{item.name}</h3>
+                    <h3 className="font-bold text-xl">{item.name}</h3>
                     <p className="text-sm text-gray-400">{item.score.toLocaleString()} 積分</p>
                   </div>
                 </motion.div>

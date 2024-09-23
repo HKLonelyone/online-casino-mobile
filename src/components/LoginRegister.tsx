@@ -40,10 +40,13 @@ const LoginRegister: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+    <div className="fixed inset-0 flex items-center justify-center bg-black">
       {/* Spline 3D 背景 */}
-      <div className="absolute inset-0 z-0">
-        <Spline scene="https://prod.spline.design/s5YDp6ejRN4SvBEY/scene.splinecode" />
+      <div className="absolute inset-0 z-0 w-full h-full">
+        <Spline
+          scene="https://prod.spline.design/s5YDp6ejRN4SvBEY/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
       </div>
 
       {/* 遮蓋 "Built with Spline" 標誌的元素 */}
@@ -54,7 +57,7 @@ const LoginRegister: React.FC = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-gray-800 bg-opacity-90 rounded-xl p-8 w-full max-w-md z-20 shadow-lg"
+        className="bg-gray-800 bg-opacity-90 rounded-xl p-8 w-full max-w-md z-20 shadow-lg relative"
       >
         <div className="text-center mb-8">
           <Image
