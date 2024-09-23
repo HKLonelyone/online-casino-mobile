@@ -1,0 +1,36 @@
+.marqueeBox {
+  position: relative;
+  overflow: hidden;
+  height: 40px; /* 減少高度 */
+  max-width: auto; /* 減少寬度 */
+  margin: -20px auto 0; /* 調整位置 */
+  z-index: 2;
+}
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marqueeMessage {
+  color: #222;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 1; }
+}
+
+.marqueeMessage {
+  animation: fadeInOut 5s ease-in-out infinite;
+}

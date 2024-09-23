@@ -1,0 +1,86 @@
+.promotions {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  background-color: #0f0f1e;
+}
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .promoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .promoCard {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .promoCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .promoImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 150px;
+  }
+
+  .promoContent {
+    padding: 15px;
+  }
+
+  .promoTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .promoDescription {
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.4;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .promoCard {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .promoCard:nth-child(1) { animation-delay: 0.1s; }
+  .promoCard:nth-child(2) { animation-delay: 0.2s; }
+  .promoCard:nth-child(3) { animation-delay: 0.3s; }
+
+  @media (min-width: 768px) {
+    .promoContainer {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .promoCard {
+      flex-basis: calc(50% - 10px);
+    }
+  }

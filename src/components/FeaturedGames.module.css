@@ -1,0 +1,56 @@
+.featuredGames {
+    margin-bottom: 20px;
+    padding: 0 15px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .gameGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .gameCard {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .gameCard:hover {
+    transform: translateY(-5px);
+  }
+
+  .largeCard {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .favoriteIcon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 3px;
+  }
+
+  @media (max-width: 480px) {
+    .gameGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .largeCard {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }

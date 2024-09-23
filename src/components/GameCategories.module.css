@@ -1,0 +1,44 @@
+.gameTabsContainer {
+    position: relative;
+    max-width: 392px;
+    width: 100%;
+    height: 45px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+  }
+
+  .tabsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tab {
+    background: none;
+    border: none;
+    color: #452201;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .tab:hover, .tab.active {
+    color: #fdc62f;
+  }
+
+  @media (max-width: 400px) {
+    .tab {
+      font-size: 12px;
+      padding: 5px 6px;
+    }
+  }

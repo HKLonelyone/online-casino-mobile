@@ -1,0 +1,155 @@
+.shopPage {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    color: white;
+    position: relative;
+  }
+
+  .splineBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .main {
+    padding: 20px 16px;
+  }
+
+  .tabContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 10px;
+    border-radius: 25px;
+  }
+
+  .tabButton {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .activeTab {
+    background-color: #6c5ce7;
+  }
+
+  .tabContent {
+    margin-top: 20px;
+  }
+
+  .rechargeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .rechargeOption {
+    background: linear-gradient(145deg, #2a2a3d, #232334);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .rechargeIcon {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .rechargeAmount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #a78bfa;
+    margin-bottom: 5px;
+  }
+
+  .rechargeBonus {
+    font-size: 14px;
+    color: #fbbf24;
+    margin-bottom: 15px;
+  }
+
+  .rechargeButton {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .promotionList, .rewardList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .promotionItem, .rewardItem {
+    background: linear-gradient(145deg, #2a2a3d, #232334);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .promotionIcon, .rewardIcon {
+    font-size: 36px;
+    margin-right: 15px;
+  }
+
+  .promotionContent, .rewardContent {
+    flex: 1;
+  }
+
+  .promotionTitle, .rewardTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #a78bfa;
+    margin-bottom: 5px;
+  }
+
+  .promotionDescription, .rewardDescription {
+    font-size: 14px;
+    color: #9ca3af;
+  }
+
+  .rewardButton {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 640px) {
+    .rechargeGrid {
+      grid-template-columns: 1fr;
+    }
+
+    .tabButton {
+      padding: 8px 15px;
+      font-size: 12px;
+    }
+  }

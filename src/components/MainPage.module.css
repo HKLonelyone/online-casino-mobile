@@ -1,0 +1,27 @@
+.mainContainer {
+  background-color: #0f0f1e;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  padding: 0 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.content > * {
+  animation: fadeIn 0.5s ease-out, slideIn 0.5s ease-out;
+}

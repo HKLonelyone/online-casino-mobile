@@ -1,0 +1,35 @@
+.gameTabsContainer {
+    position: relative;
+    max-width: 392px;
+    min-width: 344px;
+    height: 45px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tabsWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tab {
+    background: none;
+    border: none;
+    color: #452201;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .tab:hover, .tab.active {
+    color: #fff8e4;
+  }

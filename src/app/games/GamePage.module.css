@@ -1,0 +1,24 @@
+.gamePage {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    color: white;
+    position: relative;
+  }
+
+  .splineBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .main {
+    padding: 20px 16px;
+  }
